@@ -2,6 +2,14 @@
   width: 100%;
 }  
 
+.header {
+  margin-top: 41px;
+  font: normal normal 900 40px/53px Roboto;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
 @media (min-width: 768px) {
   .app-container {
     width: 500px;

@@ -5,7 +5,8 @@ function App() {
   return (
     <div className='container d-flex justify-content-center'>
       <div className='app-container'>
-        <div style={{width: '100%', height: '200px', background: 'green' }}></div>
+        <h1 className='header'>News Today</h1>
+        <p>Mani</p>
       </div>
     </div>
     // <div className="App mt-4">
