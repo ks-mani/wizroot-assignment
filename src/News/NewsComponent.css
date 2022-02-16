@@ -36,9 +36,10 @@
     opacity: 1;
     font: normal normal normal 14px/19px Roboto;
     letter-spacing: 0px;
-    color: #EBEBEB;
+    color: #7E7E7E;
     opacity: 1;
-    padding: 0 20px;
+    padding: 0 35px;
+    background: url(../assets/icon_ionic-ios-search.svg) 10px 50% no-repeat padding-box;
 }
 
 input[type='text']::placeholder {
