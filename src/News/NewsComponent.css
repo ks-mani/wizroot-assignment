@@ -17,6 +17,10 @@
     margin-top: 10px;
 }
 
+.category-list-item:hover {
+    cursor: pointer;
+}
+
 .category-list-item img {
     vertical-align: unset;
 }
