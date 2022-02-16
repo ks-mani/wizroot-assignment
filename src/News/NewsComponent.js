@@ -17,6 +17,7 @@ export default function NewsComponent() {
                 })}
                 <li className='category-list-item'><img src={plus} /></li>
             </ul>
+            <input className='search-box' type='text' placeholder='Search for keywords, author etc' />
         </>
     )
 }
