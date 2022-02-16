@@ -17,6 +17,10 @@
     margin-top: 10px;
 }
 
+.category-list-item img {
+    vertical-align: unset;
+}
+
 .active-item {
     background-color: #00F0C2;
     color: #000000;
