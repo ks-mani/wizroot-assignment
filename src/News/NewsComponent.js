@@ -13,6 +13,7 @@ export default function NewsComponent() {
     const [selectedCategory, setSelectedCategory]= useState('techcrunch');
     const [showModal, setShowModal] = useState(false);
     const [inputData, setInputData] = useState('');
+    const [content, setContent] = useState([]);
 
     useEffect(()=>{
         if(selectedCategory) {
@@ -25,7 +26,7 @@ export default function NewsComponent() {
     const callNewsApi= useCallback((apiUrl)=>{
         axios.get(apiUrl)
         .then((resp)=>{
-            console.log(resp)
+            setContent(resp.data.articles)
         })
         .catch(err=>{
             console.log("There is an error")
@@ -78,6 +79,13 @@ export default function NewsComponent() {
                 let val= event.target.value;
                 setInputData(val)
             }}/>
+            { content.length>0 ? (
+                content.map((item)=>{
+                    return (
+                        <p key={item.publishedAt}>{JSON.stringify(item)}</p>
+                    )
+                })
+            ): null}
             {
                 showModal ? (
                     <Overlay closeModal={()=>{
