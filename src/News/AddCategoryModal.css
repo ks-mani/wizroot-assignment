@@ -4,6 +4,7 @@
     width: 80%;
     background-color: white;
     padding: 60px 60px;
+    
 }
 
 .modal-card h1 {
@@ -11,6 +12,7 @@
     letter-spacing: 0px;
     color: #000000;
     opacity: 1;
+    
 }
 
 .modal-submit {
@@ -18,11 +20,22 @@
     border-radius: 20px;
     opacity: 1;
     padding: 6px 22px;
-    font: normal normal medium 14px/19px Roboto;
+    border: none;
+}
+
+.modal-submit img { 
+    margin-right: 5px;
+}
+
+.modal-card button{
+    margin-top: 60px;
+}
+
+.modal-card button span {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
-    margin-top: 60px;
 }
 
 .modal-input {

@@ -8,7 +8,7 @@ export default function AddCategoryModal() {
             <h1>Add Category</h1>
             <input className="modal-input w-100" type="text" placeholder="Category Name"></input>
             <input className="modal-input w-100" type="text" placeholder="API URL"></input>
-            <button className="modal-submit"><img src={plus} />Add</button>
+            <button className="modal-submit"><img src={plus} /><span>Add</span></button>
         </div>
     )
 }
