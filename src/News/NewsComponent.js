@@ -22,6 +22,15 @@ export default function NewsComponent() {
         }
     }, [])
 
+    const addCategory = useCallback((item)=>{
+        let newItem = {
+            ...item,
+            id: item.name+(new Date().toDateString())            
+        }
+        setCategories([...categories, newItem])
+        setShowModal(false)
+    }, [categories])
+
     return (
         <>
             <ul className='category-list' onClick={selectedCategoryClickHandler}>
@@ -37,7 +46,7 @@ export default function NewsComponent() {
                     <Overlay closeModal={()=>{
                         setShowModal(false)
                     }}>
-                        <AddCategoryModal></AddCategoryModal>
+                        <AddCategoryModal addCateg={addCategory}></AddCategoryModal>
                     </Overlay>
                 ):null
             }

@@ -2,13 +2,17 @@ import React, { useState, useCallback } from 'react';
 import "./AddCategoryModal.css";
 import plus from '../assets/icon_ionic-ios-add_2.svg';
 
-export default function AddCategoryModal() {
+export default function AddCategoryModal(props) {
     const [categoryName, setCategoryName] = useState('');
     const [apiUrl, setApiUrl] = useState('');
 
     const buttonClickHandler = useCallback(()=>{
-
-    }, [])
+        let item = {
+            name: categoryName,
+            api: apiUrl
+        }
+        props.addCateg(item);
+    }, [categoryName,apiUrl])
     return (
         <div className="modal-card" onClick={(e)=>{e.stopPropagation()}}>
             <h1>Add Category</h1>
