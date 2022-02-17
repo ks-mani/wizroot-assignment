@@ -32,13 +32,17 @@ export default function NewsComponent() {
     }, [categories])
 
     return (
-        <>
+        <> 
             <ul className='category-list' onClick={selectedCategoryClickHandler}>
                 {categories.map((item, index)=>{
                     if(item.id === selectedCategory) return <li id={item.id} key={item.id} className='category-list-item active-item'>{item.name}</li>
                     return <li id={item.id} key={item.id} className='category-list-item'>{item.name}</li>
                 })}
-                <li id='add-item' className='category-list-item'><img src={plus} /></li>
+                {
+                    (categories.length<5) ? (
+                        <li id='add-item' className='category-list-item'><img src={plus} /></li>
+                    ):null
+                }
             </ul>
             <input className='search-box' type='text' placeholder='Search for keywords, author etc' />
             {
