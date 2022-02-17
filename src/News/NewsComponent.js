@@ -3,6 +3,7 @@ import './NewsComponent.css';
 import plus from '../assets/icon_ionic-ios-add.svg';
 
 import { news_categories } from '../Data/constants';
+import Overlay from '../Utilities/Overlay'
 
 
 export default function NewsComponent() {
@@ -29,6 +30,7 @@ export default function NewsComponent() {
                 <li id='add-item' className='category-list-item'><img src={plus} /></li>
             </ul>
             <input className='search-box' type='text' placeholder='Search for keywords, author etc' />
+            <Overlay></Overlay>
         </>
     )
 }
