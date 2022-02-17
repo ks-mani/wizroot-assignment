@@ -58,9 +58,6 @@ export default function NewsComponent() {
             let apiUrl = `https://newsapi.org/v2/everything?q=${inputData}&apiKey=${API_KEY}`;
             setSelectedCategory('');
             callNewsApi(apiUrl)
-        } else {
-            let val= event.target.value;
-            setInputData(val)
         }
     }, [inputData])
 
@@ -77,7 +74,10 @@ export default function NewsComponent() {
                     ):null
                 }
             </ul>
-            <input className='search-box' type='text' placeholder='Search for keywords, author etc' value={inputData} onKeyPress={keyPressHandler}/>
+            <input className='search-box' type='text' placeholder='Search for keywords, author etc' value={inputData} onKeyPress={keyPressHandler} onChange={(event)=>{
+                let val= event.target.value;
+                setInputData(val)
+            }}/>
             {
                 showModal ? (
                     <Overlay closeModal={()=>{
