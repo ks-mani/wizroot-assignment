@@ -15,7 +15,7 @@ export default function NewsComponent() {
     const selectedCategoryClickHandler = useCallback(function(e){
         let newCategory = e.target.closest('li') ? e.target.closest('li').id : '';
         if(newCategory==='') return;
-        
+
         if(newCategory==='add-item') {
             setShowModal(true)
         }
@@ -27,8 +27,9 @@ export default function NewsComponent() {
     const addCategory = useCallback((item)=>{
         let newItem = {
             ...item,
-            id: item.name+(new Date().toDateString())            
+            id: item.name+(new Date().toString()) 
         }
+        debugger;
         setCategories([...categories, newItem])
         setShowModal(false)
     }, [categories])
