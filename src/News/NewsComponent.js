@@ -4,6 +4,7 @@ import plus from '../assets/icon_ionic-ios-add.svg';
 
 import { news_categories } from '../Data/constants';
 import Overlay from '../Utilities/Overlay'
+import AddCategoryModal from './AddCategoryModal';
 
 
 export default function NewsComponent() {
@@ -36,7 +37,7 @@ export default function NewsComponent() {
                     <Overlay closeModal={()=>{
                         setShowModal(false)
                     }}>
-                        <p>mani</p>
+                        <AddCategoryModal></AddCategoryModal>
                     </Overlay>
                 ):null
             }
