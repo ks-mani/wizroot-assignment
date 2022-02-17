@@ -59,6 +59,17 @@ input[type='text']::placeholder {
     border: 1px solid #E5E5E5;
     border-radius: 6px;
     opacity: 1;
-    padding: 26px;
+    padding: 25px;
     margin-top: 20px;
+}
+
+.text-container {
+    width: 600px;
+}
+
+.img-container{
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
 }

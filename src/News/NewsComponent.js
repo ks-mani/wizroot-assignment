@@ -10,8 +10,13 @@ import axios from 'axios';
 
 function NewsCard({data}) {
     return (
-        <div className="data-card">
-
+        <div className="data-card d-flex justify-content-between">
+            <div className="text-container">
+                 
+            </div>
+            <div className="img-container">
+                <img src={data.urlToImage} style={{width: 'auto', height: '100%', marginLeft: '-50px'}} />
+            </div>
         </div>
     )
 }
