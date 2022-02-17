@@ -9,7 +9,7 @@ import AddCategoryModal from './AddCategoryModal';
 
 export default function NewsComponent() {
     const [categories,setCategories] = useState(news_categories);
-    const [selectedCategory, setSelectedCategory]= useState('business');
+    const [selectedCategory, setSelectedCategory]= useState('techcrunch');
     const [showModal, setShowModal] = useState(false);
 
     const selectedCategoryClickHandler = useCallback(function(e){
@@ -29,7 +29,6 @@ export default function NewsComponent() {
             ...item,
             id: item.name+(new Date().toString()) 
         }
-        debugger;
         setCategories([...categories, newItem])
         setShowModal(false)
     }, [categories])
