@@ -9,11 +9,12 @@ import Overlay from '../Utilities/Overlay'
 export default function NewsComponent() {
     const [categories,setCategories] = useState(news_categories);
     const [selectedCategory, setSelectedCategory]= useState('business');
+    const [showModal, setShowModal] = useState(false);
 
     const selectedCategoryClickHandler = useCallback(function(e){
         let newCategory = e.target.closest('li').id;
         if(newCategory==='add-item') {
-            console.log("Add button clicked")
+            setShowModal(true)
         }
         else {
             setSelectedCategory(newCategory)
@@ -30,7 +31,13 @@ export default function NewsComponent() {
                 <li id='add-item' className='category-list-item'><img src={plus} /></li>
             </ul>
             <input className='search-box' type='text' placeholder='Search for keywords, author etc' />
-            <Overlay></Overlay>
+            {
+                showModal ? (
+                    <Overlay >
+                        <p>mani</p>
+                    </Overlay>
+                ):null
+            }
         </>
     )
 }
