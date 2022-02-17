@@ -1,16 +1,35 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import './NewsComponent.css';
 import plus from '../assets/icon_ionic-ios-add.svg';
 
-import { news_categories } from '../Data/constants';
+import { news_categories, API_KEY } from '../Data/constants';
 import Overlay from '../Utilities/Overlay'
 import AddCategoryModal from './AddCategoryModal';
+import axios from 'axios';
 
 
 export default function NewsComponent() {
     const [categories,setCategories] = useState(news_categories);
     const [selectedCategory, setSelectedCategory]= useState('techcrunch');
     const [showModal, setShowModal] = useState(false);
+
+    useEffect(()=>{
+        if(selectedCategory) {
+            let obj = categories.find(item=>item.id===selectedCategory);
+            let apiUrl = obj.api+`&apiKey=${API_KEY}`
+            callNewsApiForCategory(apiUrl);
+        }
+
+        function callNewsApiForCategory(apiUrl) {
+            axios.get(apiUrl)
+            .then((resp)=>{
+                console.log(resp)
+            })
+            .catch(err=>{
+                console.log("There is an error")
+            })
+        }
+    }, [selectedCategory])
 
     const selectedCategoryClickHandler = useCallback(function(e){
         let newCategory = e.target.closest('li') ? e.target.closest('li').id : '';
@@ -20,7 +39,7 @@ export default function NewsComponent() {
             setShowModal(true)
         }
         else {
-            setSelectedCategory(newCategory)
+            setSelectedCategory(newCategory);
         }
     }, [])
 
