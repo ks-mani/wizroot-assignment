@@ -12,7 +12,9 @@ function NewsCard({data}) {
     return (
         <div className="data-card d-flex justify-content-between">
             <div className="text-container">
-                 
+                <h3>{data.title}</h3>
+                <h6>{data.author}{data.publishedAt}</h6>
+                <p>{data.description}</p>
             </div>
             <div className="img-container">
                 <img src={data.urlToImage} style={{width: 'auto', height: '100%', marginLeft: '-50px'}} />
