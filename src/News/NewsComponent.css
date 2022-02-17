@@ -52,3 +52,13 @@ input[type='text']::placeholder {
     color: #cfcfcf;
     opacity: 1;
 }
+
+.data-card {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 16px #00000010;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    opacity: 1;
+    padding: 26px;
+    margin-top: 20px;
+}

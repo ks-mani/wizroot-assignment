@@ -10,7 +10,9 @@ import axios from 'axios';
 
 function NewsCard({data}) {
     return (
-        <p>{JSON.stringify(data)}</p>
+        <div className="data-card">
+
+        </div>
     )
 }
 
