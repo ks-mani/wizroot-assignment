@@ -18,19 +18,19 @@ export default function NewsComponent() {
         if(selectedCategory) {
             let obj = categories.find(item=>item.id===selectedCategory);
             let apiUrl = obj.api+`&apiKey=${API_KEY}`
-            callNewsApiForCategory(apiUrl);
-        }
-
-        function callNewsApiForCategory(apiUrl) {
-            axios.get(apiUrl)
-            .then((resp)=>{
-                console.log(resp)
-            })
-            .catch(err=>{
-                console.log("There is an error")
-            })
+            callNewsApi(apiUrl);
         }
     }, [selectedCategory])
+
+    const callNewsApi= useCallback((apiUrl)=>{
+        axios.get(apiUrl)
+        .then((resp)=>{
+            console.log(resp)
+        })
+        .catch(err=>{
+            console.log("There is an error")
+        })
+    },[])
 
     const selectedCategoryClickHandler = useCallback(function(e){
         let newCategory = e.target.closest('li') ? e.target.closest('li').id : '';
@@ -55,12 +55,14 @@ export default function NewsComponent() {
 
     const keyPressHandler = useCallback((event)=>{
         if(event.key === 'Enter') {
-            console.log(event)
+            let apiUrl = `https://newsapi.org/v2/everything?q=${inputData}&apiKey=${API_KEY}`;
+            setSelectedCategory('');
+            callNewsApi(apiUrl)
         } else {
             let val= event.target.value;
             setInputData(val)
         }
-    }, [])
+    }, [inputData])
 
     return (
         <> 
