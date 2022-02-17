@@ -13,7 +13,9 @@ export default function NewsComponent() {
     const [showModal, setShowModal] = useState(false);
 
     const selectedCategoryClickHandler = useCallback(function(e){
-        let newCategory = e.target.closest('li').id;
+        let newCategory = e.target.closest('li') ? e.target.closest('li').id : '';
+        if(newCategory==='') return;
+        
         if(newCategory==='add-item') {
             setShowModal(true)
         }
