@@ -8,6 +8,13 @@ import AddCategoryModal from './AddCategoryModal';
 import axios from 'axios';
 
 
+function NewsCard({data}) {
+    return (
+        <p>{JSON.stringify(data)}</p>
+    )
+}
+
+
 export default function NewsComponent() {
     const [categories,setCategories] = useState(news_categories);
     const [selectedCategory, setSelectedCategory]= useState('techcrunch');
@@ -82,7 +89,7 @@ export default function NewsComponent() {
             { content.length>0 ? (
                 content.map((item)=>{
                     return (
-                        <p key={item.publishedAt}>{JSON.stringify(item)}</p>
+                        <NewsCard key={item.publishedAt} data={item}></NewsCard>
                     )
                 })
             ): null}
