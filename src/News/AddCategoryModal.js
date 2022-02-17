@@ -7,7 +7,7 @@ export default function AddCategoryModal() {
     const [apiUrl, setApiUrl] = useState('');
 
     const buttonClickHandler = useCallback(()=>{
-        console.log("Mani")
+
     }, [])
     return (
         <div className="modal-card" onClick={(e)=>{e.stopPropagation()}}>
