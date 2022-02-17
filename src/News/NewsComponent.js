@@ -12,6 +12,7 @@ export default function NewsComponent() {
     const [categories,setCategories] = useState(news_categories);
     const [selectedCategory, setSelectedCategory]= useState('techcrunch');
     const [showModal, setShowModal] = useState(false);
+    const [inputData, setInputData] = useState('');
 
     useEffect(()=>{
         if(selectedCategory) {
@@ -52,6 +53,15 @@ export default function NewsComponent() {
         setShowModal(false)
     }, [categories])
 
+    const keyPressHandler = useCallback((event)=>{
+        if(event.key === 'Enter') {
+            console.log(event)
+        } else {
+            let val= event.target.value;
+            setInputData(val)
+        }
+    }, [])
+
     return (
         <> 
             <ul className='category-list' onClick={selectedCategoryClickHandler}>
@@ -65,7 +75,7 @@ export default function NewsComponent() {
                     ):null
                 }
             </ul>
-            <input className='search-box' type='text' placeholder='Search for keywords, author etc' />
+            <input className='search-box' type='text' placeholder='Search for keywords, author etc' value={inputData} onKeyPress={keyPressHandler}/>
             {
                 showModal ? (
                     <Overlay closeModal={()=>{
