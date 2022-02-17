@@ -42,6 +42,10 @@
     margin-top: 60px;
     border: none;
     border-bottom: 1px solid grey;
+    font: normal normal normal 14px/19px Roboto;
+    letter-spacing: 0px;
+    color: #7E7E7E;
+    opacity: 1;
 }
 
 .modal-input:focus {
