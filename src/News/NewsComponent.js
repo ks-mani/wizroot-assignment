@@ -33,7 +33,9 @@ export default function NewsComponent() {
             <input className='search-box' type='text' placeholder='Search for keywords, author etc' />
             {
                 showModal ? (
-                    <Overlay >
+                    <Overlay closeModal={()=>{
+                        setShowModal(false)
+                    }}>
                         <p>mani</p>
                     </Overlay>
                 ):null
