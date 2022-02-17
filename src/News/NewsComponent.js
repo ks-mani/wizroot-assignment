@@ -7,13 +7,19 @@ import Overlay from '../Utilities/Overlay'
 import AddCategoryModal from './AddCategoryModal';
 import axios from 'axios';
 
+import moment from 'moment';
+
 
 function NewsCard({data}) {
     return (
         <div className="data-card d-flex justify-content-between">
             <div className="text-container">
-                <h3>{data.title}</h3>
-                <h6>{data.author}{data.publishedAt}</h6>
+                <h3 className="m-0">{data.title}</h3>
+                <div className="author-date mb-2">
+                    <span>{data.author}</span>
+                    <span style={{margin: '0 10px'}}>•</span>
+                    <span>{moment(data.publishedAt).format('YYYY-MM-DD hh:mm A')}</span>
+                </div>
                 <p>{data.description}</p>
             </div>
             <div className="img-container">
