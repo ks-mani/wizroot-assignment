@@ -9,6 +9,8 @@ import axios from 'axios';
 
 import moment from 'moment';
 
+import spinner from '../assets/Spinner-1s-200px.svg'
+
 
 function NewsCard({data}) {
     return (
@@ -125,7 +127,7 @@ export default function NewsComponent() {
             {
                 showSpinner ? (
                     <Overlay>
-                        <p>Mani</p>
+                        <img src={spinner} width="100px"></img>
                     </Overlay>
                 ): null
             }
