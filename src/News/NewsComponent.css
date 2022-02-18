@@ -93,12 +93,6 @@ input[type='text']::placeholder {
     overflow: hidden;
 }
 
-@media (min-width: 767px) {
-    .img-container img{
-        margin-left: -50%;
-    }
-}
-
 @media (max-width: 767px) {
     .img-container{
         width: 100%;
