@@ -25,7 +25,7 @@ function NewsCard({data}) {
                 <p>{data.description}</p>
             </div>
             <div className="img-container col-12 col-md-3 order-first order-md-last">
-                <img src={data.urlToImage} alt='' style={{width: 'auto', height: '100%', marginLeft: '-50%'}} />
+                <img src={data.urlToImage} alt='' style={{width: 'auto', height: '100%'}} />
             </div>
         </div>
     )
