@@ -92,3 +92,10 @@ input[type='text']::placeholder {
     border-radius: 15px;
     overflow: hidden;
 }
+
+@media (max-width: 767px) {
+    .img-container{
+        width: 100%;
+        height: auto;
+    }
+}
