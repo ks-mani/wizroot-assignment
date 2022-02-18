@@ -12,7 +12,7 @@ export default function AddCategoryModal(props) {
             api: apiUrl
         }
         props.addCateg(item);
-    }, [categoryName,apiUrl])
+    }, [categoryName,apiUrl, props])
     return (
         <div className="modal-card" onClick={(e)=>{e.stopPropagation()}}>
             <h1>Add Category</h1>
@@ -27,7 +27,7 @@ export default function AddCategoryModal(props) {
                 let val=event.target.value;
                 setApiUrl(val)
             }}></input>
-            <button className="modal-submit" onClick={buttonClickHandler}><img src={plus} /><span>Add</span></button>
+            <button className="modal-submit" onClick={buttonClickHandler}><img src={plus} alt='' /><span>Add</span></button>
         </div>
     )
 }

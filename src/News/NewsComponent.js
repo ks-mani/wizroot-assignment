@@ -25,7 +25,7 @@ function NewsCard({data}) {
                 <p>{data.description}</p>
             </div>
             <div className="img-container col-12 col-md-3 order-first order-md-last">
-                <img src={data.urlToImage} style={{width: 'auto', height: '100%', marginLeft: '-50px'}} />
+                <img src={data.urlToImage} alt='' style={{width: 'auto', height: '100%', marginLeft: '-50%'}} />
             </div>
         </div>
     )
@@ -40,14 +40,6 @@ export default function NewsComponent() {
     const [content, setContent] = useState([]);
     const [showSpinner, setShowSpinner] = useState(false);
 
-    useEffect(()=>{
-        if(selectedCategory) {
-            let obj = categories.find(item=>item.id===selectedCategory);
-            let apiUrl = obj.api+`&apiKey=${API_KEY}`
-            callNewsApi(apiUrl);
-        }
-    }, [selectedCategory])
-
     const callNewsApi= useCallback((apiUrl)=>{
         setShowSpinner(true);
         axios.get(apiUrl)
@@ -60,7 +52,15 @@ export default function NewsComponent() {
         .finally(()=>{
             setShowSpinner(false);
         })
-    },[])
+    },[]);
+
+    useEffect(()=>{
+        if(selectedCategory) {
+            let obj = categories.find(item=>item.id===selectedCategory);
+            let apiUrl = obj.api+`&apiKey=${API_KEY}`
+            callNewsApi(apiUrl);
+        }
+    }, [selectedCategory, callNewsApi, categories])
 
     const selectedCategoryClickHandler = useCallback(function(e){
         let newCategory = e.target.closest('li') ? e.target.closest('li').id : '';
@@ -89,7 +89,7 @@ export default function NewsComponent() {
             setSelectedCategory('');
             callNewsApi(apiUrl)
         }
-    }, [inputData])
+    }, [inputData, callNewsApi])
 
     return (
         <> 
@@ -100,7 +100,7 @@ export default function NewsComponent() {
                 })}
                 {
                     (categories.length<5) ? (
-                        <li id='add-item' className='category-list-item'><img src={plus} /></li>
+                        <li id='add-item' className='category-list-item'><img src={plus} alt='' /></li>
                     ):null
                 }
             </ul>
@@ -127,7 +127,7 @@ export default function NewsComponent() {
             {
                 showSpinner ? (
                     <Overlay>
-                        <img src={spinner} width="100px"></img>
+                        <img src={spinner} alt='' width="100px"></img>
                     </Overlay>
                 ): null
             }
