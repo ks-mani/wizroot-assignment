@@ -15,7 +15,7 @@ import spinner from '../assets/Spinner-1s-200px.svg'
 function NewsCard({data}) {
     return (
         <div className="data-card row justify-content-between">
-            <div className="text-container col-12 col-md-9">
+            <div className="text-container col-12 col-md-9 mt-3 mt-md-0">
                 <h3 className="m-0">{data.title}</h3>
                 <div className="author-date mb-2">
                     <span>{data.author}</span>
