@@ -12,8 +12,8 @@ import moment from 'moment';
 
 function NewsCard({data}) {
     return (
-        <div className="data-card d-flex justify-content-between">
-            <div className="text-container">
+        <div className="data-card row justify-content-between">
+            <div className="text-container col-12 col-md-9">
                 <h3 className="m-0">{data.title}</h3>
                 <div className="author-date mb-2">
                     <span>{data.author}</span>
@@ -22,7 +22,7 @@ function NewsCard({data}) {
                 </div>
                 <p>{data.description}</p>
             </div>
-            <div className="img-container">
+            <div className="img-container col-12 col-md-3">
                 <img src={data.urlToImage} style={{width: 'auto', height: '100%', marginLeft: '-50px'}} />
             </div>
         </div>
