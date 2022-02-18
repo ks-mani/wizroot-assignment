@@ -36,6 +36,7 @@ export default function NewsComponent() {
     const [showModal, setShowModal] = useState(false);
     const [inputData, setInputData] = useState('');
     const [content, setContent] = useState([]);
+    const [showSpinner, setShowSpinner] = useState(false);
 
     useEffect(()=>{
         if(selectedCategory) {
@@ -46,12 +47,16 @@ export default function NewsComponent() {
     }, [selectedCategory])
 
     const callNewsApi= useCallback((apiUrl)=>{
+        setShowSpinner(true);
         axios.get(apiUrl)
         .then((resp)=>{
             setContent(resp.data.articles)
         })
         .catch(err=>{
             console.log("There is an error")
+        })
+        .finally(()=>{
+            setShowSpinner(false);
         })
     },[])
 
@@ -116,6 +121,13 @@ export default function NewsComponent() {
                         <AddCategoryModal addCateg={addCategory}></AddCategoryModal>
                     </Overlay>
                 ):null
+            }
+            {
+                showSpinner ? (
+                    <Overlay>
+                        <p>Mani</p>
+                    </Overlay>
+                ): null
             }
         </>
     )
